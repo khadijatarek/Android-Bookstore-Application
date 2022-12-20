@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10sp"
+
+    tools:context=".Cart">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/scrollView3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fadeScrollbars="false"
+            android:fillViewport="true"
+            android:scrollbarStyle="outsideOverlay"
+            android:scrollingCache="true"
+            android:smoothScrollbar="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/username_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="16dp"
+                        android:drawableRight="@drawable/user"
+                        android:text="Username's Cart"
+                        android:textColor="#070303"
+                        android:textSize="24sp"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:id="@+id/clear_cart_textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Clear Cart"
+                        android:textColor="#FF03DAC5"
+                        android:textSize="24sp"
+                        android:textStyle="bold|italic"
+                        android:visibility="visible" />
+                </LinearLayout>
+
+                <ListView
+
+                    android:id="@+id/listview_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:dividerHeight="2dp"
+                    android:fadeScrollbars="false"
+                    android:listSelector="#FF03DAC5"
+
+                    android:paddingLeft="2dp"
+                    android:paddingRight="2dp"
+                    android:scrollbarStyle="outsideOverlay"
+                    android:scrollbars="vertical"
+                    android:scrollingCache="true"
+                    android:smoothScrollbar="true">
+
+                </ListView>
+
+                <TextView
+                    android:id="@+id/Total_textView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoText="true"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textColor="#FF03DAC5"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=" " />
+
+                <TextView
+                    android:id="@+id/City_label"
+                    android:layout_width="173dp"
+                    android:layout_height="wrap_content"
+                    android:text="City"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/City_textBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="City"
+                    android:inputType="textPostalAddress"
+                    android:minHeight="48dp" />
+
+                <TextView
+                    android:id="@+id/adress_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Address"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/address_textBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Street, Building No., Apartment"
+                    android:inputType="textPostalAddress"
+                    android:minHeight="48dp" />
+
+                <TextView
+                    android:id="@+id/Phone_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Phone Number"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/phone_textBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="01234567890"
+                    android:inputType="phone"
+                    android:minHeight="48dp" />
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:checked="true"
+                    android:text="Cash On Delivery"
+                    app:checkedState="checked"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="406dp" />
+
+                <Button
+                    android:id="@+id/checkout_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="59dp"
+                    android:text="Checkout"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="458dp" />
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
