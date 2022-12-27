@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <item android:title="Home"
-        android:id="@+id/home"/>
+        android:id="@+id/home"
+        app:showAsAction="always"
+        android:icon="@drawable/home"
+        />
 
 
     <item android:title="Search"
-        android:id="@+id/search"/>
-
-    <item
-        android:icon="@drawable/cart"
-        android:title="Cart"
-        app:showAsAction="always"
-        android:id="@+id/cart"/>
+        android:id="@+id/search"
+        android:icon="@drawable/search"
+        app:showAsAction="always"/>
 
     <item
         android:icon="@drawable/ic_baseline_favorite_border_24"
@@ -21,6 +21,16 @@
         app:showAsAction="always"
         android:id="@+id/favourites"/>
 
+    <item
+        android:icon="@drawable/cart"
+        android:title="Cart"
+        app:showAsAction="always"
+        android:id="@+id/cart"/>
+
+
+
     <item android:title="LogOut"
-        android:id="@+id/logout"/>
+        android:id="@+id/logout"
+        app:showAsAction="always"
+        android:icon="@drawable/logout" />
 </menu>

@@ -21,17 +21,30 @@
                 android:layout_height="wrap_content"
                 android:fillViewport="true"
                 android:orientation="vertical">
+    <LinearLayout
+    android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/fav_username_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:text="Username's Favorites"
+            android:textColor="#070303"
+            android:textSize="24sp"
+            android:visibility="visible" />
+        <TextView
+            android:id="@+id/clear_fav_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clear Favorites"
+            android:textColor="#FF03DAC5"
+            android:textSize="24sp"
+            android:textStyle="bold|italic"
+            android:visibility="visible" />
+    </LinearLayout>
 
-                <TextView
-                    android:id="@+id/fav_username_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="Username's Favorites"
-                    android:textColor="#070303"
-                    android:textSize="24sp"
-                    android:visibility="visible" />
 
                 <ListView
                     android:id="@+id/favs_listView"
@@ -44,19 +57,19 @@
 
                 </ListView>
 
-                <TextView
-                    android:id="@+id/fav_text"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text=""
-                    android:textAllCaps="true"
-                    android:textColor="#FF03DAC5"
-                    android:textSize="20sp"
-                    android:textStyle="bold|italic" />
-
             </LinearLayout>
         </ScrollView>
+
+        <TextView
+            android:id="@+id/fav_text"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text=""
+            android:textAllCaps="true"
+            android:textColor="#FF03DAC5"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
     </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

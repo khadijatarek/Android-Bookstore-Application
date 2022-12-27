@@ -39,13 +39,12 @@ public class BookDetails extends activity_base {
         imageView.setImageResource(resId);
 
 
-        Toast.makeText(this, "hi", Toast.LENGTH_SHORT).show();
-        
+
         ((TextView)findViewById(R.id.book_name)).setText(""+bookdetails.getString(1));
-        ((TextView)findViewById(R.id.Author)).setText("   Author :    "+bookdetails.getString(2));
-        ((TextView)findViewById(R.id.price)).setText("    Price :     "+bookdetails.getString(5));
-        ((TextView)findViewById(R.id.About)).setText("    About :     "+bookdetails.getString(3));
-        ((TextView)findViewById(R.id.Genre)).setText("    Genre :     "+bookdetails.getString(4));
+        ((TextView)findViewById(R.id.Author)).setText("Author :    "+bookdetails.getString(2));
+        ((TextView)findViewById(R.id.price)).setText("Price :     "+bookdetails.getString(5)+" EGP");
+        ((TextView)findViewById(R.id.About)).setText("About :     "+bookdetails.getString(3));
+        ((TextView)findViewById(R.id.Genre)).setText("Genre :     "+bookdetails.getString(4));
 
         Button btnCart=findViewById(R.id.addcart);
         btnCart.setOnClickListener(new View.OnClickListener() {

@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Search extends AppCompatActivity {
+public class Search extends activity_base {
     GridView gridView1;
 
     @Override
@@ -62,10 +62,7 @@ public class Search extends AppCompatActivity {
                         startActivity(i1);
                     }
                 });
-
-
             }
-
         });
 
 

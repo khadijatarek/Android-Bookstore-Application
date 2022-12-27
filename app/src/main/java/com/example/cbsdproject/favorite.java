@@ -2,8 +2,10 @@ package com.example.cbsdproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -35,6 +37,17 @@ public class favorite extends activity_base {
         ArrayAdapter<String> listAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_activated_1);
         ListView favList = findViewById(R.id.favs_listView);
 
+        TextView clear = (TextView) findViewById(R.id.clear_fav_textView);
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                db.ClearFav(username);
+                Intent i1 =new Intent(getApplicationContext(),favorite.class);
+                i1.putExtra("username",username);
+                startActivity(i1);
+
+            }
+        });
 
 
         if(cursor.getCount()>0) {

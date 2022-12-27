@@ -15,13 +15,6 @@ public class CheckOut extends activity_base {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_check_out);
         getSupportActionBar().setTitle("Cart");
-/* i1.putExtra("username",username);
-                i1.putExtra("city",  ((TextView)findViewById(R.id.City_textBox)).getText().toString());
-                i1.putExtra("address",  ((TextView)findViewById(R.id.address_textBox)).getText().toString());
-                i1.putExtra("phone",  ((TextView)findViewById(R.id.phone_textBox)).getText().toString());
-                i1.putExtra("TotalPrice",  Integer.toString(totalPrice));
-                i1.putExtra("Items",  Integer.toString(numberOfItems));
-* */
 
 
         Bundle b1= getIntent().getExtras();

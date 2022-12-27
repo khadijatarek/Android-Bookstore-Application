@@ -21,6 +21,7 @@ public class Sign_up extends AppCompatActivity {
         EditText input_email=findViewById(R.id.input_email);
         EditText input_username=findViewById(R.id.input_username);
         EditText input_password=findViewById(R.id.input_password);
+        EditText input_repassword=findViewById(R.id.input_repass);
 
         DBHelper db = new DBHelper(this);
 
@@ -41,11 +42,17 @@ public class Sign_up extends AppCompatActivity {
                 String email= input_email.getText().toString();
                 String password= input_password.getText().toString();
                 String username= input_username.getText().toString();
+                String re_pass= input_repassword.getText().toString();
+                if(password.equals(re_pass)){
 
-                db.insertUserData(email,username,password);
-                Toast.makeText(Sign_up.this, "User created", Toast.LENGTH_SHORT).show();
-                Intent goToRegisterActivity =  new Intent(Sign_up.this,MainActivity.class);
-                startActivity(goToRegisterActivity);
+                    db.insertUserData(email,username,password);
+                    Toast.makeText(Sign_up.this, "User created", Toast.LENGTH_SHORT).show();
+                    Intent goToRegisterActivity =  new Intent(Sign_up.this,MainActivity.class);
+                    startActivity(goToRegisterActivity);
+                }
+                else{
+                    Toast.makeText(Sign_up.this, "Password doesn't match", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

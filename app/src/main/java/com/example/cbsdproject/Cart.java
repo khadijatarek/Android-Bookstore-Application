@@ -99,6 +99,7 @@ public class Cart extends activity_base {
         checkOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent i1 =new Intent(getApplicationContext(),CheckOut.class);
                 i1.putExtra("username",username);
                 i1.putExtra("city",  ((TextView)findViewById(R.id.City_textBox)).getText().toString());
