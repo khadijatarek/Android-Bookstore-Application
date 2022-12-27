@@ -100,15 +100,25 @@ public class Cart extends activity_base {
             @Override
             public void onClick(View v) {
 
-                Intent i1 =new Intent(getApplicationContext(),CheckOut.class);
-                i1.putExtra("username",username);
-                i1.putExtra("city",  ((TextView)findViewById(R.id.City_textBox)).getText().toString());
-                i1.putExtra("address",  ((TextView)findViewById(R.id.address_textBox)).getText().toString());
-                i1.putExtra("phone",  ((TextView)findViewById(R.id.phone_textBox)).getText().toString());
-                i1.putExtra("TotalPrice",  Integer.toString(totalPrice));
-                i1.putExtra("Items",  Integer.toString(numberOfItems));
+                TextView city = (TextView)findViewById(R.id.City_textBox);
+                TextView address = (TextView)findViewById(R.id.address_textBox);
+                TextView phone = (TextView)findViewById(R.id.phone_textBox);
 
-                startActivity(i1);
+                if(city.getText().toString().equals(" ")
+                ||address.getText().toString().equals(" ")
+                ||phone.getText().toString().equals(" ")){
+                    Toast.makeText(Cart.this, "Please Enter Data", Toast.LENGTH_SHORT).show();
+                }else{
+                    Intent i1 =new Intent(getApplicationContext(),CheckOut.class);
+                    i1.putExtra("username",username);
+                    i1.putExtra("city",  ((TextView)findViewById(R.id.City_textBox)).getText().toString());
+                    i1.putExtra("address",  ((TextView)findViewById(R.id.address_textBox)).getText().toString());
+                    i1.putExtra("phone",  ((TextView)findViewById(R.id.phone_textBox)).getText().toString());
+                    i1.putExtra("TotalPrice",  Integer.toString(totalPrice));
+                    i1.putExtra("Items",  Integer.toString(numberOfItems));
+
+                    startActivity(i1);
+                }
             }
         });
 

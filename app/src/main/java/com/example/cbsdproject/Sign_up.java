@@ -18,13 +18,6 @@ public class Sign_up extends AppCompatActivity {
         setContentView(R.layout.activity_sign_up);
         getSupportActionBar().setTitle("Sign Up");
 
-        EditText input_email=findViewById(R.id.input_email);
-        EditText input_username=findViewById(R.id.input_username);
-        EditText input_password=findViewById(R.id.input_password);
-        EditText input_repassword=findViewById(R.id.input_repass);
-
-        DBHelper db = new DBHelper(this);
-
         TextView textviewsignin=findViewById(R.id.textviewsignin);
         textviewsignin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,7 +27,12 @@ public class Sign_up extends AppCompatActivity {
             }
         });
 
+        EditText input_email=findViewById(R.id.input_email);
+        EditText input_username=findViewById(R.id.input_username);
+        EditText input_password=findViewById(R.id.input_password);
+        EditText input_repassword=findViewById(R.id.input_repass);
 
+        DBHelper db = new DBHelper(this);
         Button signup_btn = findViewById(R.id.btn_signup);
         signup_btn.setOnClickListener(new View.OnClickListener() {
             @Override

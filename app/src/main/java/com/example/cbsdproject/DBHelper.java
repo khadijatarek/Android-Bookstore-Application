@@ -55,33 +55,15 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase MyDB, int i, int i1) {
         MyDB.execSQL("drop Table if exists users ");
         MyDB.execSQL("drop Table if exists books ");
+        MyDB.execSQL("drop Table if exists fav ");
+        MyDB.execSQL("drop Table if exists cart ");
         onCreate(MyDB);
 
     }
 
-    public void addToCart(String username,String bookName, int book_price){
-        ContentValues row= new ContentValues();
-        row.put("username",username);
-        row.put("bookName",bookName);
-        row.put("book_price",book_price);
 
-        bookstoreDB = getWritableDatabase();
-        bookstoreDB.insert("cart",null,row);
-        bookstoreDB.close();
-    }
-    public void addToFav(String username,String bookName){
-        ContentValues row= new ContentValues();
-        row.put("username",username);
-        row.put("bookName",bookName);
-
-        bookstoreDB = getWritableDatabase();
-        bookstoreDB.insert("fav",null,row);
-        bookstoreDB.close();
-    }
-
-
-    public void  insertUserData(String email, String username ,String password)
-     {
+    //user
+    public void  insertUserData(String email, String username ,String password) {
          ContentValues row= new ContentValues();
          row.put("email",email);
          row.put("username",username);
@@ -92,8 +74,7 @@ public class DBHelper extends SQLiteOpenHelper {
          bookstoreDB.close();
      }
 
-    public boolean Login(String input_email, String input_password) throws SQLException
-    {
+    public boolean Login(String input_email, String input_password) throws SQLException {
         bookstoreDB=getReadableDatabase();
         Cursor mCursor = bookstoreDB.rawQuery("SELECT * FROM users where email=? AND password=?", new String[]{input_email,input_password});
 
@@ -122,8 +103,10 @@ public class DBHelper extends SQLiteOpenHelper {
         else return null;
     }
 
-    public void insertBook(String title,String author, String about, String genre, int price,int quantity,String image_url)
-    {
+
+
+    //books
+    public void insertBook(String title,String author, String about, String genre, int price,int quantity,String image_url) {
         ContentValues row= new ContentValues();
         row.put("title",title);
         row.put("author",author);
@@ -171,25 +154,6 @@ public class DBHelper extends SQLiteOpenHelper {
         books_cursor.close();
         return arrayList;
     }
-    public Cursor getAllCartBooks(String username){
-
-        bookstoreDB=getReadableDatabase();
-        Cursor books_cursor= bookstoreDB.rawQuery("Select bookName, book_price from cart where username=?",new String[]{username});
-
-        books_cursor.moveToFirst();
-
-        return books_cursor;
-    }
-
-    public Cursor getUserFav(String username){
-
-        bookstoreDB=getReadableDatabase();
-        Cursor books_cursor= bookstoreDB.rawQuery("Select distinct bookName from fav where username=?",new String[]{username});
-
-        books_cursor.moveToFirst();
-        return books_cursor;
-
-    }
 
     public Cursor getAllBooks(){
         bookstoreDB=getReadableDatabase();
@@ -217,19 +181,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return null;
     }
 
-    public void ClearCart(String username){
-
-        bookstoreDB=getWritableDatabase();
-        bookstoreDB.execSQL("Delete from cart where username = ?",new String[]{username});
-        bookstoreDB.close();
-    }
-    public void ClearFav(String username){
-
-        bookstoreDB=getWritableDatabase();
-        bookstoreDB.execSQL("Delete from fav where username = ?",new String[]{username});
-        bookstoreDB.close();
-    }
-
     public ArrayList<String> getImages_Search(String title){
         ArrayList<String> arrayList = new ArrayList<>();
 
@@ -246,6 +197,9 @@ public class DBHelper extends SQLiteOpenHelper {
         books_cursor.close();
         return arrayList;
     }
+
+
+    //search
     public ArrayList<String> getBooksName_Search(String title){
         ArrayList<String> arrayList = new ArrayList<>();
 
@@ -261,5 +215,67 @@ public class DBHelper extends SQLiteOpenHelper {
 
         books_cursor.close();
         return arrayList;
+    }
+
+
+
+
+    //Cart
+    public void addToCart(String username,String bookName, int book_price){
+        ContentValues row= new ContentValues();
+        row.put("username",username);
+        row.put("bookName",bookName);
+        row.put("book_price",book_price);
+
+        bookstoreDB = getWritableDatabase();
+        bookstoreDB.insert("cart",null,row);
+        bookstoreDB.close();
+    }
+
+    public Cursor getAllCartBooks(String username){
+
+        bookstoreDB=getReadableDatabase();
+        Cursor books_cursor= bookstoreDB.rawQuery("Select bookName, book_price from cart where username=?",new String[]{username});
+
+        books_cursor.moveToFirst();
+
+        return books_cursor;
+    }
+
+    public void ClearCart(String username){
+
+        bookstoreDB=getWritableDatabase();
+        bookstoreDB.execSQL("Delete from cart where username = ?",new String[]{username});
+        bookstoreDB.close();
+    }
+
+
+
+    //fav
+    public void addToFav(String username,String bookName){
+        ContentValues row= new ContentValues();
+        row.put("username",username);
+        row.put("bookName",bookName);
+
+        bookstoreDB = getWritableDatabase();
+        bookstoreDB.insert("fav",null,row);
+        bookstoreDB.close();
+    }
+
+    public Cursor getUserFav(String username){
+
+        bookstoreDB=getReadableDatabase();
+        Cursor books_cursor= bookstoreDB.rawQuery("Select distinct bookName from fav where username=?",new String[]{username});
+
+        books_cursor.moveToFirst();
+        return books_cursor;
+
+    }
+
+    public void ClearFav(String username){
+
+        bookstoreDB=getWritableDatabase();
+        bookstoreDB.execSQL("Delete from fav where username = ?",new String[]{username});
+        bookstoreDB.close();
     }
 }

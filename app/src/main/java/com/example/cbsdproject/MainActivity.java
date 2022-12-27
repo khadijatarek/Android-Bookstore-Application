@@ -19,10 +19,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Online Book Store");
 
 
-        final EditText input_email=findViewById(R.id.input_email);
-        final EditText input_password=findViewById(R.id.input_password);
-
-
         TextView textviewsignup=findViewById(R.id.textviewsignin);
         textviewsignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+        final EditText input_email=findViewById(R.id.input_email);
+        final EditText input_password=findViewById(R.id.input_password);
 
 
         Button btn_login=findViewById(R.id.btn_login);
